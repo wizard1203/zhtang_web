@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% from 'macros.html' import form_field %}
+<!-- {% import "bootstrap/wtf.html" as wtf %} -->
+<!-- using wtf.html will influence the network speed -->
+
+{% block title %}ddl-web{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <h1>Hello, {% if name %}{{ name }}{% else %}Stranger{% endif %}!</h1>
+    {% if not known %}
+    <p>Pleased to meet you!</p>
+    {% else %}
+    <p>Happy to see you again!</p>
+    {% endif %}
+</div>
+<h3>Register</h3>
+<form method="post" action="{{ url_for('main.create_user') }}">
+    {{ form_create_user.csrf_token }}
+    {{ form_field(form_create_user.name) }}
+    {{ form_create_user.submit }}
+</form>
+
+<h3>Query dataset</h3>    
+<form method="post" action="{{ url_for('main.query_dataset') }}">
+    {{ form_query_dataset.csrf_token }}
+    {{ form_field(form_query_dataset.name) }}
+    {{ form_field(form_query_dataset.dataset) }}
+    {{ form_query_dataset.submit }}
+</form>
+
+<h3>submit your code</h3>
+<form method="post" action="{{ url_for('main.submit_job') }}">
+    {{ form_submit_job.csrf_token }}
+    {{ form_field(form_submit_job.name)}}
+    {{ form_submit_job.job_code}}
+    <!-- {{ form_field(form_submit_job.job_code)}} -->
+    <!-- <input type="file" name="my_file"> -->
+    {{ form_submit_job.submit }}
+</form>
+
+<h3>query job</h3>
+<form method="post" action="{{ url_for('main.query_job') }}">
+    {{ form_query_job.csrf_token }}
+    {{ form_field(form_query_job.name) }}
+    {{ form_field(form_query_job.job_id) }}
+    {{ form_query_job.submit }}
+</form>
+
+<h3>kill job</h3>
+<form method="post" action="{{ url_for('main.kill_job') }}">
+    {{ form_kill_job.csrf_token }}
+    {{ form_field(form_kill_job.name) }}
+    {{ form_field(form_kill_job.job_id) }}
+    {{ form_kill_job.submit }}
+
+
+<!-- {{ wtf.quick_form(form_create_user, id='form_create_user', action="{{ url_for('create_user') }}") }}
+{{ wtf.quick_form(form_query_dataset, id='form_query_dataset', action="{{ url_for('query_dataset') }}") }}
+{{ wtf.quick_form(form_submit_job, id='form_submit_job', action="{{ url_for('submit_job') }}") }}
+{{ wtf.quick_form(form_query_job, id='form_query_job', action="{{ url_for('query_job') }}") }}
+{{ wtf.quick_form(form_kill_job, id='form_kill_job', action="{{ url_for('kill_job') }}") }} -->
+{% endblock %}
+
