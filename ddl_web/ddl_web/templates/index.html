@@ -30,7 +30,7 @@
 </form>
 
 <h3>submit your code</h3>
-<form method="post" action="{{ url_for('main.submit_job') }}">
+<form method="post" action="{{ url_for('main.submit_job') }}" enctype=multipart/form-data>
     {{ form_submit_job.csrf_token }}
     {{ form_field(form_submit_job.name)}}
     {{ form_submit_job.job_code}}
