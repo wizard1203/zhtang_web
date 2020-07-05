@@ -1,4 +1,5 @@
 # zhtang_web
 
-test test 
-study study
+cd ddl_web
+pip install -r requirements.txt
+python manage.py runserver
