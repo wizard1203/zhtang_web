@@ -25,7 +25,7 @@ colorama==0.4.3 ; sys_platform == 'win32'
 httpie==2.0.0
 idna==2.9
 pathtools==0.1.2
-pygments==2.6.1
+pygments==2.7.4
 requests==2.23.0
 selenium==3.141.0
 urllib3==1.25.8
