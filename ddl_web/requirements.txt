@@ -1,4 +1,4 @@
-babel==2.8.0
+babel==2.9.1
 click==7.1.1
 faker==4.0.2
 flask-babel==1.0.0
